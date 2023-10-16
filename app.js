@@ -1,7 +1,8 @@
 // IMPORT PACKAGES
 // Here you should import the required packages for your Express app: `express` and `morgan`
-const express = require('express')
-const morgan = require('morgan')
+const express = require("express")
+const morgan = require("morgan")
+const dataProjects = require("./data/projects.json")
 
 
 // CREATE EXPRESS APP
@@ -29,10 +30,11 @@ app.get('/', (request, response) => {
 app.get('/blog', (request, response) => {
     response.sendFile(__dirname + "/views/blog.html")
 })
-app.get('/api/projects', (request, response) => {
-    response.json(projects)
+app.get('/data/projects', (request, response) => {
+    console.log(dataProjects)
+    response.json(dataProjects)
 })
-app.get('/api/articles', (request, response) => {
+app.get('/data/articles', (request, response) => {
     response.json(articles)
 })
 
